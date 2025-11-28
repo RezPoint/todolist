@@ -2,6 +2,9 @@ import axios from 'axios'
 import WebApp from '@twa-dev/sdk'
 import type { Task, CreateTaskInput, UpdateTaskInput } from '../types'
 
+// Re-export types for backward compatibility
+export type { Task, CreateTaskInput, UpdateTaskInput }
+
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000'
 
 class ApiClient {

@@ -1,5 +1,5 @@
-import type { Task } from '../lib/api';
-import { useTaskStore } from '../store/taskStore';
+import type { Task } from '../types'
+import { useTaskStore } from '../store/taskStore'
 
 interface TaskItemProps {
   task: Task;
@@ -20,17 +20,17 @@ export function TaskItem({ task }: TaskItemProps) {
     }
   };
 
-  const statusColors = {
+  const statusColors: Record<Task['status'], string> = {
     PENDING: 'bg-yellow-50 border-yellow-200',
     IN_PROGRESS: 'bg-blue-50 border-blue-200',
     DONE: 'bg-green-50 border-green-200',
-  };
+  }
 
-  const statusIcons = {
+  const statusIcons: Record<Task['status'], string> = {
     PENDING: '⏳',
     IN_PROGRESS: '🔄',
     DONE: '✅',
-  };
+  }
 
   return (
     <div

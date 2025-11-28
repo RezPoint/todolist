@@ -10,7 +10,7 @@ export interface Task {
   title: string
   description?: string
   status: 'PENDING' | 'IN_PROGRESS' | 'DONE'
-  priority: 'LOW' | 'MEDIUM' | 'HIGH'
+  priority: number | 'LOW' | 'MEDIUM' | 'HIGH'
   dueDate?: string
   createdAt: string
   updatedAt: string
@@ -19,6 +19,14 @@ export interface Task {
 export interface CreateTaskInput {
   title: string
   description?: string
+  priority?: 'LOW' | 'MEDIUM' | 'HIGH'
+  dueDate?: string
+}
+
+export interface UpdateTaskInput {
+  title?: string
+  description?: string
+  status?: 'PENDING' | 'IN_PROGRESS' | 'DONE'
   priority?: 'LOW' | 'MEDIUM' | 'HIGH'
   dueDate?: string
 }

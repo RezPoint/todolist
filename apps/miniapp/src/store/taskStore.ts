@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import type { Task, CreateTaskInput, UpdateTaskInput } from '../lib/api';
-import { api } from '../lib/api';
+import { create } from 'zustand'
+import type { Task, CreateTaskInput, UpdateTaskInput } from '../types'
+import { api } from '../lib/api'
 
 interface TaskStore {
   tasks: Task[];
