@@ -45,6 +45,12 @@ railway up
    ```
 7. Установите команду запуска: `cd apps/backend && npm start`
 8. Railway автоматически определит build команду
+9. **Найдите URL Backend:**
+   - Откройте Backend сервис → Settings → Networking
+   - Включите "Public Networking"
+   - Нажмите "Generate Domain"
+   - Скопируйте URL (например: `https://backend-production-xxxx.up.railway.app`)
+   - 📖 Подробнее: см. [RAILWAY_FIND_URL.md](./RAILWAY_FIND_URL.md)
 
 ### 2. Bot
 
@@ -54,10 +60,11 @@ railway up
    ```
    NODE_ENV=production
    TELEGRAM_BOT_TOKEN=your_bot_token
-   BACKEND_URL=https://your-backend-url.railway.app
-   MINIAPP_URL=https://your-miniapp-url.vercel.app
+   BACKEND_URL=https://your-backend-url.railway.app  # URL из шага 1.9
+   MINIAPP_URL=https://your-miniapp-url.vercel.app   # URL после деплоя MiniApp
    ```
 4. Установите команду запуска: `cd apps/bot && npm start`
+5. **Важно:** Bot не нужен Public Networking (оставьте выключенным)
 
 ## 🎨 Render
 
