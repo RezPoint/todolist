@@ -117,7 +117,7 @@ todolist/
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/RezPoin/todolist.git
+git clone https://github.com/RezPoint/todolist.git
 cd todolist
 ```
 
@@ -335,10 +335,10 @@ vercel --prod
 
 ## 👤 Автор
 
-**RezPoin**
+**RezPoint**
 
-- GitHub: [@RezPoin](https://github.com/RezPoin)
-- Telegram: [@RezPoin](https://t.me/RezPoin)
+- GitHub: [@RezPoint](https://github.com/RezPoint)
+- Telegram: [@RezPoint](https://t.me/RezPoint)
 
 ## 🙏 Благодарности
 
@@ -349,10 +349,10 @@ vercel --prod
 
 ## 📊 Статистика проекта
 
-![GitHub stars](https://img.shields.io/github/stars/RezPoin/todolist?style=social)
-![GitHub forks](https://img.shields.io/github/forks/RezPoin/todolist?style=social)
-![GitHub issues](https://img.shields.io/github/issues/RezPoin/todolist)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/RezPoin/todolist)
+![GitHub stars](https://img.shields.io/github/stars/RezPoint/todolist?style=social)
+![GitHub forks](https://img.shields.io/github/forks/RezPoint/todolist?style=social)
+![GitHub issues](https://img.shields.io/github/issues/RezPoint/todolist)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/RezPoint/todolist)
 
 ---
 
