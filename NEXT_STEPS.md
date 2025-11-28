@@ -109,9 +109,10 @@
 6. **Обновите MINIAPP_URL в Bot сервисе**
    - Вернитесь в Railway → Bot сервис → Variables
    - Обновите `MINIAPP_URL` на скопированный URL
+   - Пример: `https://miniapp-9gv2m0r5q-todolistrezpoins-projects.vercel.app`
    - Или добавьте его, если оставили пустым
 
-6. **Установите Environment Variables в Vercel**
+7. **Установите Environment Variables в Vercel**
    - Откройте проект в [Vercel Dashboard](https://vercel.com)
    - Перейдите в **Settings → Environment Variables**
    - Добавьте:
@@ -122,9 +123,15 @@
    - Перейдите в Backend сервис → Settings → Networking → Generate Domain
    - Скопируйте публичный URL
 
-7. **Redeploy MiniApp**
+   - **💡 Если Backend еще не имеет публичного URL:**
+     - Включите "Public Networking" на Backend
+     - Нажмите "Generate Domain"
+     - Скопируйте URL (например: `https://backend-production-xxxx.up.railway.app`)
+
+8. **Redeploy MiniApp**
    - После добавления переменных сделайте redeploy
    - В Vercel Dashboard → Deployments → нажмите "..." → Redeploy
+   - Или выполните: `vercel --prod` снова
 
 ### ШАГ 4: Настроить домен cryptalis.su
 
