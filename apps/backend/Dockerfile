@@ -11,9 +11,35 @@ COPY tsconfig.json ./
 # Install dependencies
 RUN npm ci
 
+# Copy Prisma schema
+COPY apps/backend/prisma ./apps/backend/prisma
+
+# Generate Prisma Client
+WORKDIR /app/apps/backend
+RUN npx prisma generate
+
+WORKDIR /app
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY apps/backend/package.json ./apps/backend/
+COPY tsconfig.base.json ./
+COPY tsconfig.json ./
+
+# Install dependencies
+RUN npm ci
+
 # Copy source code
 COPY apps/backend ./apps/backend
 COPY apps/backend/tsconfig.json ./apps/backend/
+
+# Ensure Prisma Client is generated
+WORKDIR /app/apps/backend
+RUN npx prisma generate
+
+WORKDIR /app
 
 # Build
 RUN npm run build --workspace=apps/backend

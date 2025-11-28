@@ -65,7 +65,7 @@ export async function registerTaskRoutes(app: FastifyInstance) {
       const userId = await ensureUserSession(request);
       const tasks = await TaskService.listByOwner(userId);
       // Convert Date objects to ISO strings for JSON serialization
-      return tasks.map((task) => ({
+      return tasks.map((task: typeof tasks[0]) => ({
         ...task,
         dueDate: task.dueDate ? task.dueDate.toISOString() : null,
         createdAt: task.createdAt.toISOString(),
