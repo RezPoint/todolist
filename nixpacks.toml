@@ -8,5 +8,5 @@ cmds = ["npm ci"]
 cmds = ["npm run build"]
 
 [start]
-cmd = "cd apps/backend && npm start"
+cmd = "cd apps/backend && npm run start:prod"
 
