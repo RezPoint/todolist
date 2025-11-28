@@ -19,6 +19,12 @@ Railway автоматически нашел переменные в вашем
   - Выберите `RAILWAY_PUBLIC_DOMAIN`
 - Или введите вручную: `${{RAILWAY_PUBLIC_DOMAIN}}`
 
+**⚠️ Важно:** Railway покажет предупреждение о egress fees. Это нормально!
+- Backend должен быть **публично доступен** для Bot и MiniApp
+- Используйте `RAILWAY_PUBLIC_DOMAIN` (не private)
+- Egress fees будут минимальными, так как Backend только отвечает на запросы
+- Это необходимо для работы проекта
+
 #### ❌ TELEGRAM_BOT_TOKEN
 - **НЕ добавляйте для Backend!**
 - Эта переменная нужна только для Bot сервиса
