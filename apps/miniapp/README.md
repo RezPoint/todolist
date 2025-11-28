@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# 📱 Telegram MiniApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современный веб-интерфейс для управления задачами в Telegram.
 
-Currently, two official plugins are available:
+## 📁 Структура
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+miniapp/
+├── public/             # Статические файлы
+├── src/
+│   ├── components/     # React компоненты
+│   │   ├── TaskList.tsx
+│   │   ├── TaskItem.tsx
+│   │   └── AddTaskForm.tsx
+│   ├── hooks/         # React хуки
+│   │   └── useTelegram.ts
+│   ├── lib/           # Библиотеки
+│   │   └── api.ts     # API клиент
+│   ├── store/         # State management
+│   │   └── taskStore.ts
+│   ├── types/         # TypeScript типы
+│   ├── utils/         # Утилиты
+│   ├── constants/     # Константы
+│   ├── App.tsx        # Главный компонент
+│   └── main.tsx       # Точка входа
+├── index.html
+├── vite.config.ts     # Vite конфигурация
+├── tailwind.config.js # Tailwind конфигурация
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Технологии
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React 19** - UI библиотека
+- **Vite** - быстрый сборщик
+- **Tailwind CSS** - утилитарный CSS
+- **Zustand** - управление состоянием
+- **Telegram WebApp SDK** - интеграция с Telegram
+- **Axios** - HTTP клиент
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Запуск
+
+```bash
+# Установка зависимостей
+npm install
+
+# Разработка
+npm run dev
+
+# Сборка
+npm run build
+
+# Предпросмотр продакшн сборки
+npm run preview
 ```
+
+## 📝 Переменные окружения
+
+Создайте `.env` файл на основе `env.example`:
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+## 🚀 Деплой
+
+### Vercel
+
+```bash
+vercel --prod
+```
+
+### Другие платформы
+
+Соберите проект и загрузите содержимое папки `dist` на любой статический хостинг.
+
+## 🔗 Интеграция с Telegram
+
+1. Создайте бота через [@BotFather](https://t.me/BotFather)
+2. Настройте MiniApp URL в настройках бота
+3. Убедитесь что URL использует HTTPS

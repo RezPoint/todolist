@@ -1,31 +1,8 @@
-import axios from 'axios';
-import WebApp from '@twa-dev/sdk';
+import axios from 'axios'
+import WebApp from '@twa-dev/sdk'
+import type { Task, CreateTaskInput, UpdateTaskInput } from '../types'
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
-
-export type Task = {
-  id: string;
-  title: string;
-  description: string | null;
-  status: 'PENDING' | 'IN_PROGRESS' | 'DONE';
-  dueDate: string | null;
-  priority: number;
-  projectId: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type CreateTaskInput = {
-  title: string;
-  description?: string;
-  dueDate?: string;
-  projectId?: string;
-  priority?: number;
-};
-
-export type UpdateTaskInput = Partial<CreateTaskInput> & {
-  status?: 'PENDING' | 'IN_PROGRESS' | 'DONE';
-};
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000'
 
 class ApiClient {
   private baseURL: string;

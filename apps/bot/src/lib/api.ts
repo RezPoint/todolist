@@ -1,29 +1,6 @@
-import fetch from 'node-fetch';
-import { env } from '../config/env';
-
-export type Task = {
-  id: string;
-  title: string;
-  description: string | null;
-  status: 'PENDING' | 'IN_PROGRESS' | 'DONE';
-  dueDate: string | null;
-  priority: number;
-  projectId: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type CreateTaskInput = {
-  title: string;
-  description?: string;
-  dueDate?: string;
-  projectId?: string;
-  priority?: number;
-};
-
-export type UpdateTaskInput = Partial<CreateTaskInput> & {
-  status?: 'PENDING' | 'IN_PROGRESS' | 'DONE';
-};
+import fetch from 'node-fetch'
+import { env } from '../config/env'
+import type { Task, CreateTaskInput, UpdateTaskInput } from '../types'
 
 class ApiClient {
   private baseUrl: string;

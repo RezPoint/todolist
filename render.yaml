@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: backend
+    env: node
+    buildCommand: npm install && npm run build --workspace=apps/backend
+    startCommand: cd apps/backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    healthCheckPath: /api/health
+
+  - type: worker
+    name: bot
+    env: node
+    buildCommand: npm install && npm run build --workspace=apps/bot
+    startCommand: cd apps/bot && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+databases:
+  - name: todolist-db
+    databaseName: todolist
+    user: todolist
+    plan: free
+

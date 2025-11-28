@@ -13,11 +13,14 @@ todolist/
 │   ├── bot/               # Telegram Bot
 │   └── miniapp/           # Telegram MiniApp
 ├── packages/               # Shared packages
-│   ├── bot-scenarios/     # Сценарии для бота
-│   ├── sdk/               # SDK для API
-│   ├── types/             # Общие типы
-│   └── ui-kit/            # UI компоненты
-├── docs/                   # Документация (опционально)
+│   ├── types/             # Общие TypeScript типы
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── bot-scenarios/     # Сценарии для бота (будущее)
+│   ├── sdk/               # SDK для API (будущее)
+│   └── ui-kit/            # UI компоненты (будущее)
+├── docs/                   # Дополнительная документация
 └── [config files]         # Конфигурационные файлы
 ```
 
@@ -35,8 +38,12 @@ backend/
 ├── src/
 │   ├── config/
 │   │   └── env.ts         # Конфигурация окружения
+│   ├── constants/
+│   │   └── index.ts       # Константы (HTTP статусы, ошибки)
 │   ├── lib/
 │   │   └── prisma.ts      # Prisma Client
+│   ├── middleware/
+│   │   └── auth.ts         # Middleware для аутентификации
 │   ├── modules/
 │   │   ├── tasks/         # Модуль задач
 │   │   │   └── task.service.ts
@@ -45,8 +52,13 @@ backend/
 │   ├── routes/
 │   │   ├── health.ts      # Health check
 │   │   └── tasks.ts       # API endpoints для задач
+│   ├── types/
+│   │   └── index.ts        # TypeScript типы
+│   ├── utils/
+│   │   └── index.ts        # Утилиты
 │   ├── app.ts             # Настройка Fastify
 │   └── main.ts            # Точка входа
+├── README.md              # Документация
 └── package.json
 ```
 
@@ -78,8 +90,13 @@ bot/
 │   │   └── utils.ts       # Утилиты
 │   ├── config/
 │   │   └── env.ts         # Конфигурация
+│   ├── constants/
+│   │   └── index.ts       # Константы (команды, эмодзи, сообщения)
+│   ├── types/
+│   │   └── index.ts       # TypeScript типы
 │   ├── bot.ts             # Настройка бота
 │   └── main.ts            # Точка входа
+├── README.md              # Документация
 └── package.json
 ```
 
@@ -100,10 +117,18 @@ miniapp/
 │   │   ├── TaskList.tsx
 │   │   ├── TaskItem.tsx
 │   │   └── AddTaskForm.tsx
+│   ├── hooks/             # React хуки
+│   │   └── useTelegram.ts # Хук для работы с Telegram WebApp
 │   ├── store/
 │   │   └── taskStore.ts   # Zustand store
 │   ├── lib/
 │   │   └── api.ts         # API клиент
+│   ├── types/
+│   │   └── index.ts       # TypeScript типы
+│   ├── utils/
+│   │   └── index.ts       # Утилиты (форматирование дат)
+│   ├── constants/
+│   │   └── index.ts       # Константы (статусы, приоритеты)
 │   ├── App.tsx            # Главный компонент
 │   ├── main.tsx           # Точка входа
 │   └── index.css          # Стили
@@ -111,6 +136,7 @@ miniapp/
 ├── vite.config.ts         # Vite конфигурация
 ├── tailwind.config.js     # Tailwind конфигурация
 ├── vercel.json            # Vercel конфигурация
+├── README.md              # Документация
 └── package.json
 ```
 
@@ -128,8 +154,11 @@ miniapp/
 
 - `package.json` - конфигурация монорепозитория
 - `tsconfig.base.json` - базовая TypeScript конфигурация
+- `tsconfig.json` - корневая TypeScript конфигурация
 - `eslint.config.mjs` - ESLint конфигурация
 - `.prettierrc.json` - Prettier конфигурация
+- `.prettierignore` - Prettier ignore правила
+- `.editorconfig` - EditorConfig для единообразия кода
 - `.gitignore` - Git ignore правила
 - `.gitattributes` - Git атрибуты
 - `docker-compose.yml` - Docker конфигурация
