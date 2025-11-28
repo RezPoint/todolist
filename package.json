@@ -1,0 +1,70 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Полнофункциональное приложение для управления задачами с поддержкой Telegram бота и MiniApp",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RezPoin/todolist.git"
+  },
+  "homepage": "https://github.com/RezPoin/todolist#readme",
+  "bugs": {
+    "url": "https://github.com/RezPoin/todolist/issues"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/backend --workspace=apps/bot --workspace=apps/miniapp",
+    "build": "npm run build --workspace=apps/backend --workspace=apps/bot --workspace=apps/miniapp",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "test": "npm run test --workspaces --if-present",
+    "clean": "rimraf node_modules pnpm-lock.yaml package-lock.json dist build",
+    "prisma:migrate": "npm run prisma:migrate -w apps/backend",
+    "prisma:generate": "npm run prisma:generate -w apps/backend",
+    "prisma:studio": "npm run prisma:studio -w apps/backend"
+  },
+  "engines": {
+    "node": ">=18.18",
+    "npm": ">=10.0"
+  },
+  "packageManager": "npm@10.9.0",
+  "keywords": [
+    "telegram",
+    "telegram-bot",
+    "telegram-miniapp",
+    "todo",
+    "todolist",
+    "task-manager",
+    "grammy",
+    "fastify",
+    "prisma",
+    "react",
+    "vite",
+    "typescript",
+    "monorepo",
+    "portfolio"
+  ],
+  "author": {
+    "name": "RezPoin",
+    "url": "https://github.com/RezPoin"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.7.0",
+    "rimraf": "^6.1.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.0"
+  }
+}
