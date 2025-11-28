@@ -25,9 +25,17 @@
    - Railway автоматически добавит сервис в текущий проект
 
 3. **Настройте сервис**
-   - **Root Directory:** `/` (корень проекта)
-   - **Start Command:** `cd apps/bot && npm start`
-   - **Service Type:** Worker (не Web Service)
+   - **Root Directory:** `/` (корень проекта) - уже установлено ✅
+   - **Start Command:** нужно установить (см. ниже)
+   - **Service Type:** автоматически определяется как Worker, если:
+     - Public Networking выключен
+     - Сервис не слушает HTTP порт
+   
+   **Где установить Start Command:**
+   - Перейдите в **Settings → Deploy**
+   - Найдите поле **"Start Command"** или **"Run Command"**
+   - Введите: `cd apps/bot && npm start`
+   - Или в **Settings → Build** найдите **"Start Command"**
 
 4. **Установите Variables (Environment Variables)**
    
