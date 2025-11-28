@@ -46,10 +46,19 @@ railway up
 7. Установите команду запуска: `cd apps/backend && npm start`
 8. Railway автоматически определит build команду
 9. **Найдите URL Backend:**
-   - Откройте Backend сервис → Settings → Networking
-   - Включите "Public Networking"
-   - Нажмите "Generate Domain"
+   
+   **Вариант A: Внутренний домен (рекомендуется для Bot)**
+   - В разделе "Private Networking" найдите домен: `todolist.railway.internal`
+   - Или просто используйте имя сервиса: `todolist`
+   - Для Bot используйте: `http://todolist:3000` или `http://todolist.railway.internal:3000`
+   - Работает только между сервисами в одном проекте Railway
+   - Не требует Public Networking
+   - Более безопасно и быстрее
+   
+   **Вариант B: Публичный домен (для MiniApp)**
+   - В разделе "Public Networking" нажмите "Generate Domain"
    - Скопируйте URL (например: `https://backend-production-xxxx.up.railway.app`)
+   - Нужен для доступа извне (MiniApp на Vercel)
    - 📖 Подробнее: см. [RAILWAY_FIND_URL.md](./RAILWAY_FIND_URL.md)
 
 ### 2. Bot
@@ -60,9 +69,11 @@ railway up
    ```
    NODE_ENV=production
    TELEGRAM_BOT_TOKEN=your_bot_token
-   BACKEND_URL=https://your-backend-url.railway.app  # URL из шага 1.9
+   BACKEND_URL=http://todolist:3000  # Внутренний домен (имя Backend сервиса)
+   # ИЛИ: BACKEND_URL=http://todolist.railway.internal:3000
    MINIAPP_URL=https://your-miniapp-url.vercel.app   # URL после деплоя MiniApp
    ```
+   **💡 Совет:** Используйте внутренний домен `http://todolist:3000` - это быстрее и безопаснее!
 4. Установите команду запуска: `cd apps/bot && npm start`
 5. **Важно:** Bot не нужен Public Networking (оставьте выключенным)
 
