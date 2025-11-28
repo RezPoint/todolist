@@ -18,12 +18,21 @@ export async function listCommand(ctx: Context) {
       DONE: '✅'
     };
 
-    const priorityEmoji = ['', '🔴', '🟠', '🟡'];
+    const priorityEmoji: Record<string | number, string> = {
+      0: '',
+      1: '🔴',
+      2: '🟠',
+      3: '🟡',
+      LOW: '🟢',
+      MEDIUM: '🟡',
+      HIGH: '🔴'
+    };
 
     let message = '📋 <b>Твои задачи:</b>\n\n';
     tasks.forEach((task, index) => {
       const emoji = statusEmoji[task.status];
-      const priority = priorityEmoji[task.priority] || '';
+      const priorityKey = typeof task.priority === 'number' ? task.priority : task.priority || 0;
+      const priority = priorityEmoji[priorityKey] || '';
       const dueDate = task.dueDate ? ` 📅 ${new Date(task.dueDate).toLocaleDateString('ru-RU')}` : '';
       message += `${index + 1}. ${emoji} ${priority} ${task.title}${dueDate}\n`;
       if (task.description) {
