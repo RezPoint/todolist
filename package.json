@@ -19,6 +19,11 @@
   "scripts": {
     "dev": "npm run dev --workspace=apps/backend --workspace=apps/bot --workspace=apps/miniapp",
     "build": "npm run build --workspace=apps/backend --workspace=apps/bot --workspace=apps/miniapp",
+    "build:backend": "npm run build --workspace=apps/backend",
+    "build:bot": "npm run build --workspace=apps/bot",
+    "build:miniapp": "npm run build --workspace=apps/miniapp",
+    "start:backend": "cd apps/backend && npm start",
+    "start:bot": "cd apps/bot && npm start",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
@@ -27,7 +32,8 @@
     "clean": "rimraf node_modules pnpm-lock.yaml package-lock.json dist build",
     "prisma:migrate": "npm run prisma:migrate -w apps/backend",
     "prisma:generate": "npm run prisma:generate -w apps/backend",
-    "prisma:studio": "npm run prisma:studio -w apps/backend"
+    "prisma:studio": "npm run prisma:studio -w apps/backend",
+    "postinstall": "npm run prisma:generate"
   },
   "engines": {
     "node": ">=18.18",
