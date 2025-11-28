@@ -1,8 +1,8 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 import { TaskStatus } from '@prisma/client';
-import { TaskService } from '../modules/tasks/task.service';
-import { ensureUser } from '../modules/users/user.service';
+import { TaskService } from '../modules/tasks/task.service.js'
+import { ensureUser } from '../modules/users/user.service.js'
 
 const createTaskBody = z.object({
   title: z.string().min(1),

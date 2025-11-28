@@ -1,5 +1,5 @@
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { HTTP_STATUS, ERROR_MESSAGES } from '../constants'
+import { HTTP_STATUS, ERROR_MESSAGES } from '../constants/index.js'
 
 export async function ensureUserSession(
   request: FastifyRequest,

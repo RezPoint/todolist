@@ -1,5 +1,5 @@
 import { Prisma, TaskStatus } from '@prisma/client';
-import { prisma } from '../../lib/prisma';
+import { prisma } from '../../lib/prisma.js'
 
 export type CreateTaskInput = {
   title: string;

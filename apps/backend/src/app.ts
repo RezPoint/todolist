@@ -8,9 +8,9 @@ import {
   serializerCompiler,
   validatorCompiler
 } from 'fastify-type-provider-zod';
-import { env } from './config/env';
-import { registerHealthRoutes } from './routes/health';
-import { registerTaskRoutes } from './routes/tasks';
+import { env } from './config/env.js'
+import { registerHealthRoutes } from './routes/health.js'
+import { registerTaskRoutes } from './routes/tasks.js'
 
 export async function buildServer() {
   const app = Fastify({
